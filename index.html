@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Flora & Fauna</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<h1>Flora & Fauna 🌿</h1>
+<div id="game">
+  <div id="status"></div>
+  <div id="actions">
+    <button onclick="playerAction('plant')">Plant seeds (+10)</button>
+    <button onclick="playerAction('herbivore')">Add Herbivores (+2)</button>
+    <button onclick="playerAction('predator')">Add Predator (+1)</button>
+    <button onclick="playerAction('skip')">Skip Turn</button>
+  </div>
+  <div id="log"></div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
