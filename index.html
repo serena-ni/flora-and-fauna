@@ -3,21 +3,46 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Flora & Fauna</title>
+<title>flora & fauna</title>
 <link rel="stylesheet" href="style.css">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
 </head>
 <body>
 
-<h1>Flora & Fauna 🌿</h1>
 <div id="game">
-  <div id="status"></div>
-  <div id="actions">
-    <button onclick="playerAction('plant')">Plant seeds (+10)</button>
-    <button onclick="playerAction('herbivore')">Add Herbivores (+2)</button>
-    <button onclick="playerAction('predator')">Add Predator (+1)</button>
-    <button onclick="playerAction('skip')">Skip Turn</button>
-  </div>
-  <div id="log"></div>
+    <!-- visual area -->
+    <div id="visual-area">
+        <canvas id="ecosystemCanvas"></canvas>
+    </div>
+
+    <!-- status and log area -->
+    <div id="status-log-container">
+        <h1>flora & fauna 🌿</h1>
+        <div id="status">
+            <div id="stats">
+                <div class="bar-container">
+                    <div class="bar" id="plants-bar"></div>
+                    <div class="label">🌱</div>
+                </div>
+                <div class="bar-container">
+                    <div class="bar" id="herbivores-bar"></div>
+                    <div class="label">🐐</div>
+                </div>
+                <div class="bar-container">
+                    <div class="bar" id="predators-bar"></div>
+                    <div class="label">🐺</div>
+                </div>
+            </div>
+            <div id="status-text"></div>
+        </div>
+        <div id="log"></div>
+        <div id="actions">
+            <button onclick="playerAction('plant')">🌱 plant seeds</button>
+            <button onclick="playerAction('herbivore')">🐐 add herbivores</button>
+            <button onclick="playerAction('predator')">🐺 add predator</button>
+            <button onclick="playerAction('skip')">⏳ skip turn</button>
+        </div>
+    </div>
 </div>
 
 <script src="script.js"></script>

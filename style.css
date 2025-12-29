@@ -1,44 +1,132 @@
-@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&display=swap');
-
 body {
-    font-family: 'Quicksand', sans-serif;
+    font-family: 'Poppins', sans-serif;
     background: linear-gradient(to bottom, #e0f7fa, #ffffff);
+    margin: 0;
     padding: 20px;
     color: #2c3e50;
-}
-
-h1 {
-    text-align: center;
-    font-weight: 600;
-    font-size: 2.5em;
-    color: #2e7d32;
-    text-shadow: 1px 1px 2px #a5d6a7;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    text-transform: lowercase;
 }
 
 #game {
-    max-width: 650px;
-    margin: 20px auto;
-    background: #f1f8e9;
-    padding: 25px;
+    width: 95%;
+    max-width: 1200px;
+    height: 90vh;
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    align-items: stretch;
+}
+
+#visual-area {
+    flex: 2;
+    background: linear-gradient(to bottom, #b2f2bb, #a8e6cf);
     border-radius: 20px;
-    box-shadow: 0 8px 15px rgba(0,0,0,0.1);
-    border: 2px solid #c5e1a5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+}
+
+#ecosystemCanvas {
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
+}
+
+#status-log-container {
+    flex: 3;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+h1 {
+    text-align: left;
+    font-weight: 600;
+    font-size: 2em;
+    color: #2e7d32;
+    margin: 0;
+    text-shadow: 1px 1px 2px #a5d6a7;
 }
 
 #status {
     background: #ffffffdd;
     border-radius: 15px;
     padding: 15px;
-    margin-bottom: 20px;
     border: 1px solid #c5e1a5;
     box-shadow: inset 0 2px 5px rgba(0,0,0,0.05);
-    font-weight: 500;
-    line-height: 1.5em;
+    display: flex;
+    gap: 20px;
+    align-items: flex-end;
+}
+
+#stats {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: flex-end;
+    width: 100%;
+    height: 120px;
+    position: relative;
+}
+
+.bar-container {
+    display: flex;
+    flex-direction: column-reverse; /* bars grow up, icon stays at bottom */
+    align-items: center;
+    height: 100%;
+    position: relative;
+}
+
+.bar {
+    width: 30px;
+    background-color: #66bb6a;
+    border-radius: 5px 5px 0 0;
+    transition: height 0.3s ease;
+    min-height: 0;
+}
+
+#plants-bar { background-color: #2e7d32; }
+#herbivores-bar { background-color: #fdd835; }
+#predators-bar { background-color: #d32f2f; }
+
+.label {
+    margin-top: 5px;
+    font-size: 1.2em;
+}
+
+#status-text {
+    flex: 1;
+    padding-left: 15px;
+}
+
+#log {
+    background: #ffffff;
+    border: 1px solid #c5e1a5;
+    border-radius: 15px;
+    flex: 1;
+    overflow-y: auto;
+    padding: 12px;
+    white-space: pre-line;
+    box-shadow: inset 0 2px 5px rgba(0,0,0,0.05);
+    font-size: 0.9em;
+    line-height: 1.3em;
+}
+
+#actions {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    flex-wrap: wrap;
 }
 
 button {
-    margin: 5px;
-    padding: 12px 20px;
+    padding: 12px 18px;
     font-size: 16px;
     font-weight: 600;
     border-radius: 12px;
@@ -46,31 +134,21 @@ button {
     cursor: pointer;
     background: linear-gradient(to bottom, #81c784, #66bb6a);
     color: #fff;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
     transition: all 0.2s ease;
+    white-space: nowrap;
+    text-align: center;
+    font-family: 'Poppins', sans-serif;
+    text-transform: lowercase;
 }
 
 button:hover {
     transform: translateY(-2px);
-    box-shadow: 0 6px 10px rgba(0,0,0,0.25);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.2);
     background: linear-gradient(to bottom, #66bb6a, #4caf50);
 }
 
 button:active {
     transform: translateY(1px);
     box-shadow: 0 2px 4px rgba(0,0,0,0.2);
-}
-
-#log {
-    background: #ffffff;
-    border: 1px solid #c5e1a5;
-    border-radius: 15px;
-    height: 280px;
-    overflow-y: auto;
-    padding: 15px;
-    margin-top: 15px;
-    white-space: pre-line;
-    box-shadow: inset 0 2px 5px rgba(0,0,0,0.05);
-    font-size: 0.95em;
-    line-height: 1.4em;
 }
